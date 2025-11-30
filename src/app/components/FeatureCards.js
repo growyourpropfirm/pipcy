@@ -28,7 +28,7 @@ export default function FeatureCards({ content = [] }) {
             </div>
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
             <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-5 md:p-6 flex flex-col gap-2 items-center">
-              <h3 className="font-bold text-[#ddb87c] text-[16px] sm:text-[18px] md:text-[20px] leading-[16px] text-center whitespace-nowrap">
+              <h3 className="font-bold text-[#ddb87c] text-[16px] sm:text-[18px] md:text-[20px] leading-[16px] text-center lg:whitespace-nowrap">
                 {card.title}
               </h3>
               <p className="font-medium text-white text-[12px] sm:text-[13px] md:text-[14px] lg:text-[16px] leading-[14px] sm:leading-[16px] text-center whitespace-pre-wrap max-w-[318px] px-2">

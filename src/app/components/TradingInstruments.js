@@ -55,7 +55,7 @@ export default function TradingInstruments({ content }) {
 
         {/* Benefits Row */}
         <div className="w-full overflow-x-auto px-2 sm:px-0">
-          <div className="flex flex-wrap gap-3 sm:gap-4 md:gap-[20px] items-center justify-center min-w-max md:min-w-0 max-w-[1161px] mx-auto">
+          <div className="flex flex-wrap gap-3 sm:gap-4 md:gap-[20px] items-center justify-center lg:min-w-max max-w-[1161px] mx-auto">
             {benefits.map((benefit, index) => (
               <motion.div
                 key={index}
@@ -75,7 +75,7 @@ export default function TradingInstruments({ content }) {
                     className="object-contain"
                   />
                 </div>
-                <span className="font-semibold text-[#ddb87c] text-[11px] sm:text-[12px] md:text-[13px] lg:text-[15px] leading-[14px] sm:leading-[16px] whitespace-pre-wrap">
+                <span className="font-semibold text-[#ddb87c] text-[11px] sm:text-[12px] md:text-[13px] lg:text-[15px] leading-[14px] sm:leading-[16px] lg:whitespace-pre-wrap">
                   {benefit.text}
                 </span>
               </motion.div>
