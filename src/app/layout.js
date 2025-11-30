@@ -11,6 +11,9 @@ const inter = Inter({
 export const metadata = {
   title: "Pipcy - Start Your Trading Challenge",
   description: "Take the Pipcy Qualification Challenge at a massive discount. Prove your trading skills and get access to live capital once you qualify.",
+  icons: {
+    icon: "/images/fav.png"
+  },
 };
 
 export default function RootLayout({ children }) {

@@ -9,6 +9,7 @@ import SmartPropFirm from "./components/SmartPropFirm";
 import MidPageCTA from "./components/MidPageCTA";
 import BecomeTrader from "./components/BecomeTrader";
 import Footer from "./components/Footer";
+import { homeContent } from "./config/content";
 
 export default function Home() {
   return (
@@ -36,14 +37,14 @@ export default function Home() {
 
       {/* Main Content */}
       <div className="relative z-10">
-        <NavigationBar />
-        <HeroSection />
-        <TradingInstruments />
-        <FeatureCards />
-        <SmartPropFirm />
-        <MidPageCTA />
-        <BecomeTrader />
-        <Footer />
+        <NavigationBar content={homeContent.navigation} />
+        <HeroSection content={homeContent.hero} />
+        <TradingInstruments content={homeContent.tradingInstruments} />
+        <FeatureCards content={homeContent.featureCards} />
+        <SmartPropFirm content={homeContent.smartPropFirm} />
+        <MidPageCTA content={homeContent.midPageCTA} />
+        <BecomeTrader content={homeContent.becomeTrader} />
+        <Footer content={homeContent.footer} />
       </div>
     </div>
   );
