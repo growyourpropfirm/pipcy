@@ -1,9 +1,29 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function HeroSection({ content }) {
   const { title, titleHighlight, description, disclaimer, emailForm } = content || {};
+  const [email, setEmail] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const router = useRouter();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!email || !email.includes("@")) {
+      return;
+    }
+
+    setIsSubmitting(true);
+    
+    // Simulate API call delay
+    await new Promise(resolve => setTimeout(resolve, 500));
+    
+    // Redirect to subscribe page with email parameter
+    router.push(`/subscribe?email=${encodeURIComponent(email)}`);
+  };
 
   return (
     <section className="relative pt-[120px] sm:pt-[140px] md:pt-[180px] lg:pt-[240px] pb-12 sm:pb-16 md:pb-20 flex items-center px-4 sm:px-6 md:px-8 lg:px-[150px]">
@@ -60,7 +80,7 @@ export default function HeroSection({ content }) {
                 }
               }}
             >
-              <div className="backdrop-blur-[19.5px] bg-[rgba(210,210,210,0.01)] border-2 border-[rgba(178,178,178,0.19)] rounded-[20px] sm:rounded-[27px] p-4 sm:p-6 md:p-8 w-full">
+              <form onSubmit={handleSubmit} className="backdrop-blur-[19.5px] bg-[rgba(210,210,210,0.01)] border-2 border-[rgba(178,178,178,0.19)] rounded-[20px] sm:rounded-[27px] p-4 sm:p-6 md:p-8 w-full">
                 <div className="flex flex-col gap-6 sm:gap-[30px] items-center">
                   <p className="font-semibold text-[16px] sm:text-[18px] md:text-[20px] lg:text-[24px] leading-[24px] sm:leading-[26px] md:leading-[30px] text-[#ddb87c] text-center whitespace-pre-wrap px-2">
                     {emailForm?.heading || "Enter your email to start setting up your account."}
@@ -72,22 +92,28 @@ export default function HeroSection({ content }) {
                     </div>
                     <input
                       type="email"
+                      required
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
                       placeholder={emailForm?.placeholder || "Email address"}
                       className="relative z-10 bg-transparent border-none outline-none w-full font-normal text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] text-[rgba(255,255,255,0.6)] placeholder:text-[rgba(255,255,255,0.5)] tracking-[-0.2px] text-left placeholder:text-center focus:placeholder:text-left focus:text-white transition-colors"
+                      disabled={isSubmitting}
                     />
                   </div>
 
                   <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="bg-gradient-to-r from-[#ddb87c] to-[#d6cbb3] rounded-[71px] px-6 sm:px-8 md:px-[32px] py-3 sm:py-4 md:py-[16px] w-full"
+                    type="submit"
+                    disabled={isSubmitting || !email}
+                    whileHover={{ scale: isSubmitting ? 1 : 1.05 }}
+                    whileTap={{ scale: isSubmitting ? 1 : 0.95 }}
+                    className="bg-gradient-to-r from-[#ddb87c] to-[#d6cbb3] rounded-[71px] px-6 sm:px-8 md:px-[32px] py-3 sm:py-4 md:py-[16px] w-full disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     <span className="font-semibold text-[12px] sm:text-[14px] md:text-[16px] text-[#0d0d0d] uppercase whitespace-nowrap">
-                      {emailForm?.buttonText || "Get Started for $23"}
+                      {isSubmitting ? "Submitting..." : (emailForm?.buttonText || "Get Started for $23")}
                     </span>
                   </motion.button>
                 </div>
-              </div>
+              </form>
             </motion.div>
           </motion.div>
         </div>
