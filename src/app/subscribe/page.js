@@ -92,7 +92,7 @@ function SubscribeContent() {
                   className="flex flex-col gap-4 sm:gap-6"
                 >
                   <h1 className="font-bold text-[28px] sm:text-[36px] md:text-[42px] lg:text-[48px] leading-[36px] sm:leading-[44px] md:leading-[50px] lg:leading-[60px] text-white">
-                    Thank You for Subscribing!
+                    🎉 You're In!
                   </h1>
                   
                   {email && (
@@ -103,24 +103,10 @@ function SubscribeContent() {
 
                   <div className="flex flex-col gap-4 font-normal leading-[24px] text-[16px] sm:text-[18px] md:text-[20px] text-white">
                     <p>
-                      We've received your subscription and you're all set!
+                      Check your inbox — we've just sent your secure trial login link and setup steps.
                     </p>
-                    <p className="text-[#ddb87c]">
-                      Check your email for confirmation and next steps.
-                    </p>
-                  </div>
-                </motion.div>
-
-                {/* Additional Info */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.6 }}
-                  className="w-full mt-4"
-                >
-                  <div className="bg-[rgba(255,255,255,0.05)] border border-[rgba(221,184,124,0.3)] rounded-[15px] p-6 sm:p-8">
-                    <p className="font-medium text-[14px] sm:text-[16px] leading-[24px] text-white">
-                      What's next? We'll send you updates about your trading challenge, exclusive offers, and important announcements. Stay tuned!
+                    <p className="text-[#ddb87c] font-medium">
+                      You can start your evaluation anytime in the next 24 hours
                     </p>
                   </div>
                 </motion.div>
