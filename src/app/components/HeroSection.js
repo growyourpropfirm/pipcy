@@ -26,7 +26,7 @@ export default function HeroSection({ content }) {
   };
 
   return (
-    <section className="relative pt-[120px] sm:pt-[140px] md:pt-[180px] lg:pt-[240px] pb-12 sm:pb-16 md:pb-20 flex items-center px-4 sm:px-6 md:px-8 lg:px-[150px]">
+    <section className="relative pt-[120px] sm:pt-[140px] md:pt-[180px] lg:pt-[240px] pb-12 sm:pb-16 md:pb-20 flex items-center px-4 sm:px-6 md:px-8 lg:px-[150px]" id="form">
       {/* Main Content Container */}
       <div className="relative z-10 w-full max-w-[100%] mx-auto px-0 sm:px-4 md:px-8 lg:px-[70px]">
         <div className="relative flex flex-col lg:flex-row items-center lg:items-start justify-between gap-8 sm:gap-10 md:gap-12 lg:gap-4">
@@ -53,6 +53,7 @@ export default function HeroSection({ content }) {
           </motion.div>
 
           {/* Right Side - Email Form */}
+          <div id="form">
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={{ 
@@ -116,6 +117,7 @@ export default function HeroSection({ content }) {
               </form>
             </motion.div>
           </motion.div>
+          </div>
         </div>
       </div>
     </section>

@@ -28,7 +28,7 @@ export default function MidPageCTA({ content }) {
             data-aos-delay={300}
           >
             <span className="font-semibold text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] text-[#0d0d0d] uppercase whitespace-nowrap">
-              {buttonText || "Start the Challenge"}
+             <a href="#form">{buttonText || "Start the Challenge"}</a>
             </span>
           </motion.button>
         </motion.div>
