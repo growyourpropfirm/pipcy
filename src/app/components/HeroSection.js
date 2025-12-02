@@ -18,11 +18,33 @@ export default function HeroSection({ content }) {
 
     setIsSubmitting(true);
     
-    // Simulate API call delay
-    await new Promise(resolve => setTimeout(resolve, 500));
-    
-    // Redirect to subscribe page with email parameter
-    router.push(`/subscribe?email=${encodeURIComponent(email)}`);
+    try {
+      const response = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        // Success - redirect to subscribe page
+        router.push(`/subscribe?email=${encodeURIComponent(email)}&status=success`);
+      } else {
+        // Error - redirect with error message
+        const errorMessage = data.error === 'already_subscribed' 
+          ? 'already_subscribed' 
+          : 'error';
+        router.push(`/subscribe?email=${encodeURIComponent(email)}&status=${errorMessage}`);
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
+      router.push(`/subscribe?email=${encodeURIComponent(email)}&status=error`);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (

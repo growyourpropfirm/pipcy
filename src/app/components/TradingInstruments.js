@@ -55,7 +55,7 @@ export default function TradingInstruments({ content }) {
 
         {/* Benefits Row */}
         <div className="w-full overflow-x-auto px-2 sm:px-0">
-          <div className="flex flex-wrap gap-3 sm:gap-4 md:gap-[20px] items-center justify-center lg:min-w-max max-w-[1161px] mx-auto">
+          <div className="flex flex-wrap gap-3 sm:gap-4 md:gap-[20px] items-center justify-center lg:min-w-max max-w-[100%] mx-auto">
             {benefits.map((benefit, index) => (
               <motion.div
                 key={index}
