@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 export default function HeroSection({ content }) {
   const { title, titleHighlight, description, disclaimer, emailForm } = content || {};
@@ -103,13 +104,13 @@ export default function HeroSection({ content }) {
                 }
               }}
             >
-              <form onSubmit={handleSubmit} className="backdrop-blur-[19.5px] bg-[rgba(210,210,210,0.01)] border-2 border-[rgba(178,178,178,0.19)] rounded-[20px] sm:rounded-[27px] p-4 sm:p-6 md:p-8 w-full">
+              {/* <form onSubmit={handleSubmit} className="backdrop-blur-[19.5px] bg-[rgba(210,210,210,0.01)] border-2 border-[rgba(178,178,178,0.19)] rounded-[20px] sm:rounded-[27px] p-4 sm:p-6 md:p-8 w-full">
                 <div className="flex flex-col gap-6 sm:gap-[30px] items-center">
                   <p className="font-semibold text-[16px] sm:text-[18px] md:text-[20px] lg:text-[24px] leading-[24px] sm:leading-[26px] md:leading-[30px] text-[#ddb87c] text-center whitespace-pre-wrap px-2">
                     {emailForm?.heading || "Enter your email to start setting up your account."}
                   </p>
                   <div className="relative bg-[rgba(255,255,255,0.05)] border-2 border-[#ddb87c] rounded-[9px] w-full px-4 sm:px-[26px] py-5 sm:py-[28px] h-[50px] flex items-center overflow-hidden group">
-                    {/* Shiny border effect */}
+
                     <div className="absolute inset-0 rounded-[9px] opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity duration-300 pointer-events-none">
                       <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#ddb87c] to-transparent opacity-30 animate-shimmer"></div>
                     </div>
@@ -136,7 +137,29 @@ export default function HeroSection({ content }) {
                     </span>
                   </motion.button>
                 </div>
-              </form>
+              </form> */}
+
+
+
+<motion.a
+  href="https://pipcy.com/en/client/register?utm_source=google&utm_medium=cpc&utm_campaign=lp"
+  target="_blank"
+  rel="noopener noreferrer"
+  whileHover={{ scale: isSubmitting ? 1 : 1.05 }}
+  whileTap={{ scale: isSubmitting ? 1 : 0.95 }}
+  className={`bg-gradient-to-r from-[#ddb87c] to-[#d6cbb3]
+    rounded-[71px]
+    px-6 sm:px-8 md:px-[32px]
+    py-3 sm:py-4 md:py-[16px]
+    w-full
+    flex items-center justify-center
+    ${isSubmitting ? "opacity-50 cursor-not-allowed pointer-events-none" : ""}`}
+>
+  <span className="font-semibold text-[12px] sm:text-[14px] md:text-[16px] text-[#0d0d0d] uppercase whitespace-nowrap">
+    Get Started for $23
+  </span>
+</motion.a>
+
             </motion.div>
           </motion.div>
           </div>
