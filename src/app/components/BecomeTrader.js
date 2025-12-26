@@ -42,7 +42,8 @@ export default function BecomeTrader({ content }) {
             data-aos="zoom-in"
           >
             <span className="font-bold text-[12px] sm:text-[14px] md:text-[15px] lg:text-[17.4px] leading-[16px] text-[#0d0d0d] uppercase whitespace-nowrap">
-              <a href="#form">{buttonText || "START FROM $23"}</a>
+              <a href="https://pipcy.com/en/client/register?utm_source=google&utm_medium=cpc&utm_campaign=lp
+" target="_blank">{buttonText || "START FROM $23"}</a>
             </span>
           </motion.button>
         </div>
